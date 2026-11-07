@@ -55,3 +55,11 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+# Skyrim Mod Splitter — local scratch (never commit mod copies/outputs)
+test-corpus/
+artifacts/
+output/
+*.log
+*.user
+.vs/
+scratch/

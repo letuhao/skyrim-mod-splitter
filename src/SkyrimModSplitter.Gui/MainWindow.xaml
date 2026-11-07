@@ -1,0 +1,80 @@
+<Window x:Class="SkyrimModSplitter.Gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Skyrim Mod Splitter" Height="860" Width="1280"
+        Background="#FFF4F4F4" WindowStartupLocation="CenterScreen">
+    <DockPanel Margin="12">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,6">
+            <TextBlock Text="Mod folder:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Width="700" VerticalAlignment="Center" Text="{Binding Folder, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Browse..." Click="Browse_Click" Margin="6,0,0,0" Padding="12,4"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,6">
+            <TextBlock Text="Data dir(s) (optional, semicolon-separated):" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox x:Name="DataDirBox" Width="700" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+            <Button x:Name="ScanButton" Content="1. Scan" Click="Scan_Click" Padding="16,4" Margin="0,0,6,0"/>
+            <Button x:Name="PlanButton" Content="2. Plan ESL conversion" Click="Plan_Click" Padding="16,4" Margin="0,0,6,0"/>
+            <Button x:Name="ApplyButton" Content="3. Apply conversion" Click="Apply_Click" Padding="16,4" Margin="0,0,6,0" IsEnabled="{Binding CanApply}"/>
+            <Button x:Name="SplitPlanButton" Content="4. Plan split" Click="SplitPlan_Click" Padding="16,4" Margin="0,0,6,0"/>
+            <Button x:Name="SplitApplyButton" Content="5. Apply split" Click="SplitApply_Click" Padding="16,4" Margin="0,0,6,0" IsEnabled="{Binding CanApplySplit}"/>
+            <Button x:Name="CancelButton" Content="Cancel" Click="Cancel_Click" Padding="12,4" Margin="0,0,6,0" IsEnabled="False"/>
+            <CheckBox x:Name="OverwriteBox" Content="Overwrite output" VerticalAlignment="Center" Margin="6,0,10,0"/>
+            <ProgressBar Width="160" Height="18" IsIndeterminate="{Binding IsBusy}" VerticalAlignment="Center"/>
+            <Button Content="Open output folder" Click="OpenOutput_Click" Padding="12,4" Margin="10,0,0,0"/>
+        </StackPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem><TextBlock Text="{Binding Status}"/></StatusBarItem>
+        </StatusBar>
+        <TabControl Margin="0,4,0,0">
+            <TabItem Header="Summary">
+                <TextBox Text="{Binding Summary, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True"
+                         FontFamily="Consolas" FontSize="13" VerticalScrollBarVisibility="Auto"
+                         HorizontalScrollBarVisibility="Auto" Background="#FFFAFAFA"/>
+            </TabItem>
+            <TabItem Header="Plugins">
+                <DataGrid ItemsSource="{Binding Plugins}" AutoGenerateColumns="False" IsReadOnly="True"
+                          GridLinesVisibility="Horizontal" HeadersVisibility="Column">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Plugin" Binding="{Binding FileName}" Width="260"/>
+                        <DataGridTextColumn Header="Raw" Binding="{Binding RawRecords}" Width="80"/>
+                        <DataGridTextColumn Header="Mutagen" Binding="{Binding MutagenRecords}" Width="90"/>
+                        <DataGridTextColumn Header="Own" Binding="{Binding Own}" Width="80"/>
+                        <DataGridTextColumn Header="Overrides" Binding="{Binding Overrides}" Width="90"/>
+                        <DataGridTextColumn Header="Below 0x800" Binding="{Binding Below0x800}" Width="100"/>
+                        <DataGridTextColumn Header="Max own ID" Binding="{Binding MaxOwnId}" Width="110"/>
+                        <DataGridTextColumn Header="ESL now" Binding="{Binding EslNow}" Width="80"/>
+                        <DataGridTextColumn Header="Renumber" Binding="{Binding Renumber}" Width="90"/>
+                        <DataGridTextColumn Header="Split" Binding="{Binding Split}" Width="70"/>
+                        <DataGridTextColumn Header="VMAD scripts" Binding="{Binding VmadScripts}" Width="110"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Conversion">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Text="{Binding PlanText, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True"
+                             FontFamily="Consolas" FontSize="13" VerticalScrollBarVisibility="Auto"
+                             HorizontalScrollBarVisibility="Auto" Background="#FFFAFAFA"/>
+                    <TextBox Grid.Row="1" Text="{Binding ApplyStatus, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True"
+                             FontFamily="Consolas" FontSize="12" MaxHeight="220" VerticalScrollBarVisibility="Auto"
+                             Margin="0,6,0,0" Background="#FFF0F4FF"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Warnings">
+                <DataGrid ItemsSource="{Binding Warnings}" AutoGenerateColumns="False" IsReadOnly="True"
+                          GridLinesVisibility="Horizontal" HeadersVisibility="Column">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Severity" Binding="{Binding Severity}" Width="90"/>
+                        <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="240"/>
+                        <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{09EBD2DD-966C-4568-ADFE-8A46E28441E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyrimModSplitter.Core", "src\SkyrimModSplitter.Core\SkyrimModSplitter.Core.csproj", "{48E18837-42EE-46A8-962E-5AB496737B31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyrimModSplitter.Cli", "src\SkyrimModSplitter.Cli\SkyrimModSplitter.Cli.csproj", "{19F70ACA-AFA3-4E5E-819F-C14E3652EA17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyrimModSplitter.Gui", "src\SkyrimModSplitter.Gui\SkyrimModSplitter.Gui.csproj", "{DA81ACCE-63C7-4B31-A6C2-42C3E939C96D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C3A35797-5F59-4B19-8683-9D149A3BD413}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyrimModSplitter.Tests", "tests\SkyrimModSplitter.Tests\SkyrimModSplitter.Tests.csproj", "{AFF6A257-B421-4E47-8552-5783B7956A89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48E18837-42EE-46A8-962E-5AB496737B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E18837-42EE-46A8-962E-5AB496737B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E18837-42EE-46A8-962E-5AB496737B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E18837-42EE-46A8-962E-5AB496737B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F70ACA-AFA3-4E5E-819F-C14E3652EA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F70ACA-AFA3-4E5E-819F-C14E3652EA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F70ACA-AFA3-4E5E-819F-C14E3652EA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F70ACA-AFA3-4E5E-819F-C14E3652EA17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA81ACCE-63C7-4B31-A6C2-42C3E939C96D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA81ACCE-63C7-4B31-A6C2-42C3E939C96D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA81ACCE-63C7-4B31-A6C2-42C3E939C96D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA81ACCE-63C7-4B31-A6C2-42C3E939C96D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF6A257-B421-4E47-8552-5783B7956A89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF6A257-B421-4E47-8552-5783B7956A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF6A257-B421-4E47-8552-5783B7956A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF6A257-B421-4E47-8552-5783B7956A89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48E18837-42EE-46A8-962E-5AB496737B31} = {09EBD2DD-966C-4568-ADFE-8A46E28441E8}
+		{19F70ACA-AFA3-4E5E-819F-C14E3652EA17} = {09EBD2DD-966C-4568-ADFE-8A46E28441E8}
+		{DA81ACCE-63C7-4B31-A6C2-42C3E939C96D} = {09EBD2DD-966C-4568-ADFE-8A46E28441E8}
+		{AFF6A257-B421-4E47-8552-5783B7956A89} = {C3A35797-5F59-4B19-8683-9D149A3BD413}
+	EndGlobalSection
+EndGlobal
